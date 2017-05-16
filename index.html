@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Game Grid Template</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -12,8 +12,105 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>Game Grid Template</h1>
+      <div class="container">
+        <div class="row article">
+          <div class="col-md-12 text-center box">Header</div>
+        </div>
 
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+
+            <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+              <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+                <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+              <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+                <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+              <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+                <div class="col-md-4 box text-center"><span class ='cell'>X</span></div>
+
+        </div>
+
+        <div class="row article">
+          <div class="col-md-12 text-center box">Controls</div>
+        </div>
+        <!-- Columns start at 50% wide on mobile and bump up to 33.3% 6wide on desktop -->
+
+
+
+        <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="footer-row">
+          <div class="col-md-6 box">Footer left</div>
+          <div class="col-md-6 box">Footer Right</div>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newGame">
+  New Game
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="newGame" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myMod">New Game</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" id="sign-in">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Remember me
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign in</button>
+          </div>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <br>
+      <br>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
