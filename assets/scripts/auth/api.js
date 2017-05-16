@@ -5,7 +5,7 @@ const app = require('./../app')
 
 const post = function (data) {
   return $.ajax({
-    url: app.host + '/users/',
+    url: app.host + '/sign-up',
     method: 'POST',
     data
   })
