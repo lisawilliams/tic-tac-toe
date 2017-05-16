@@ -1,7 +1,6 @@
 'use strict'
-
-// const api = require('./api')
-// const ui = require('./ui')
+const api = require('./api')
+const ui = require('./ui')
 
 const getFormFields = require('../../../lib/get-form-fields.js')
 
@@ -11,7 +10,7 @@ const onSignUp = function (event) {
   console.log(data)
   api.post(data)
     .then(ui.onAddUserSuccess)
-      .catch(ui.onAddUserFailure)
+    .catch(ui.onAddUserFailure)
 
   // const input = $('#credentials[email]').val()
   // console.log(input)
