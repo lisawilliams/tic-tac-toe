@@ -14,12 +14,22 @@
     <body class="container-fluid">
       <h1>Game Grid Template</h1>
 
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-button">
-        Sign Up
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+        Sign up
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="sign-up-button" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+      <!-- <fieldset>
+      Format for passing signup values to API
+    <legend>Sign up!</legend>
+    <input type="text" name="credentials[email]" value="" placeholder="email">
+    <input type="password" name="credentials[password]" value="" placeholder="password">
+    <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+    <input type="submit" name="submit" value="Sign up!">
+  </fieldset>
+</form> -->
+      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -27,47 +37,30 @@
               <h4 class="modal-title" id="myMod">Sign Up</h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" id="sign-up">
+              <form class="form-horizontal" id="sign-up-form">
               <div class="form-group">
                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                  <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
                 </div>
-              </div>
-              <div class="form-group">
                 <label for="createPassword" class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" id="createPassword" placeholder="Password">
+                  <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
                 </div>
-              </div>
-
-              <div class="form-group">
                 <label for="passwordConfirm" class="col-sm-2 control-label">Password Confirmation</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" id="passwordConfirm" placeholder="Password">
+                  <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Password">
                 </div>
-              </div>
-
-              <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Remember me
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default">Sign in</button>
+                  <input type="submit" id="sign-up" class="btn btn-default"></input>
                 </div>
               </div>
             </form>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
