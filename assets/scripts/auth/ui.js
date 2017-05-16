@@ -18,6 +18,16 @@ const onAddUserFailure = (response) => {
   console.log(response)
 }
 
+const onSignInSuccess = (response) => {
+  console.log('yayyyyy we did it')
+  console.log(response)
+}
+
+const onSignInFailure = (response) => {
+  console.log('yayyyyy we did it')
+  console.log(response)
+}
+
 module.exports = {
   failure,
   success,
