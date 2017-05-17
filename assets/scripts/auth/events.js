@@ -29,16 +29,25 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.signOut(data)
+  .done(ui.signOutSuccess)
+  .fail(ui.signOutFail)
+}
+
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
-  // $('#sign-in').on('submit', onSignIn);
-  // $('#sign-out').on('submit', onSignOut);
+  $('#sign-out').on('submit', onSignOut)
 //  $('#change-password').on('submit', onChangePassword);
 }
 
 module.exports = {
   onSignUp,
   onSignIn,
+  onSignOut,
   addHandlers
 }

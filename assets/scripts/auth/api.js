@@ -19,7 +19,18 @@ const postSignIn = function (data) {
   })
 }
 
+const signOut = function () {
+  return $.ajax({
+    method: 'DELETE',
+    url: app.host + '/sign-out/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
 module.exports = {
   post,
-  postSignIn
+  postSignIn,
+  signOut
 }
