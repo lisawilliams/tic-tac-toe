@@ -10,8 +10,8 @@
     --header "Content-Type: application/json" \
     --data '{
       "credentials": {
-        "email": "heather@heatheradels.com",
-        "password": "bunnymuffin"
+        "email": "lisa@lisa.com",
+        "password": "333"
       }
     }'
   echo
