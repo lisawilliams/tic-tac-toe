@@ -16,7 +16,7 @@ Nonworking curl request, terminal hangs:
 curl --include --request DELETE "http://tic-tac-toe.wdibos.com/sign-out/77" \
   --header "Authorization: Token token="BAhJIiViZjE4NjcxNWIyYmUxMTBhNWU4YjE3NDMxZmRmMWQzNQY6BkVG--4f1386d9aaf28c219f9675cc671bf0a204430fdb"
 
-
+#
 Old curl request, returns 404:
 
 curl "http://tic-tac-toe.wdibos.com/sign-out" \
