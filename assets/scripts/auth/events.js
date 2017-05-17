@@ -31,12 +31,21 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
-  api.signOut(data)
-  .done(ui.signOutSuccess)
-  .fail(ui.signOutFail)
+  console.log('sign out ran')
+
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
+
+// const onSignOut = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   console.log(data)
+//   api.signOut(data)
+//   .done(ui.signOutSuccess)
+//   .fail(ui.signOutFail)
+// }
 
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
