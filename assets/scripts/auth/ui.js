@@ -32,5 +32,7 @@ module.exports = {
   failure,
   success,
   onAddUserSuccess,
-  onAddUserFailure
+  onAddUserFailure,
+  onSignInSuccess,
+  onSignInFailure
 }
