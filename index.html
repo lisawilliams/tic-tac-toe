@@ -123,22 +123,17 @@
                 </form>
 
           </div>
-          <div class="col-md-6 box">Change Password<form>
-  <input name="credentials[email]" type="text" value="an@example.email">
-  <input name="credentials[password]" type="password" value="an example password">
-  <input name="credentials[password_confirmation]" type="password" value="an example password">
-</form></div>
+          <form id="change-password">
+           <fieldset>
+             <legend>Change Password</legend>
+             <input type="text" name="passwords[old]" id="change-password-old" placeholder="Old Password">
+             <input type="password" name="passwords[new]" id="change-password-new" placeholder="New Password">
+             <input type="submit" name="submit" value="Change Password!">
+           </fieldset>
+         </form>
         </div>
       </div>
-      curl --include --request PATCH http://localhost:3000/change-password/$ID \
-        --header "Authorization: Token token=$TOKEN" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "passwords": {
-            "old": "an example password",
-            "new": "super sekrit"
-          }
-        }'
+
       <br>
 
 

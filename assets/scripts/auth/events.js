@@ -29,34 +29,52 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
-const onSignOut = function (event) {
-  event.preventDefault()
-  console.log('sign out ran')
-
-  api.signOut()
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+const postSignInSuccess = (data) => {
+  store.user = data.user
+  console.log(data.user)
 }
 
 // const onSignOut = function (event) {
 //   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   console.log(data)
-//   api.signOut(data)
-//   .done(ui.signOutSuccess)
-//   .fail(ui.signOutFail)
+//   console.log(store.user.id)
+//   console.log('sign out ran')
+//
+//   api.signOut()
+//     .then(ui.signOutSuccess)
+//     .catch(ui.signOutFailure)
 // }
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.signOut(onSignIn.data)
+  .then(ui.signOutSuccess)
+  .catch(ui.signOutFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log('change password ran!')
+
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
 
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
-//  $('#change-password').on('submit', onChangePassword);
+  $('#change-password').on('submit', onChangePassword)
 }
 
 module.exports = {
   onSignUp,
   onSignIn,
+  postSignInSuccess,
   onSignOut,
+  onChangePassword,
   addHandlers
 }
