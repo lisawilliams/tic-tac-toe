@@ -4,6 +4,8 @@ const ui = require('./ui')
 
 const getFormFields = require('../../../lib/get-form-fields.js')
 
+// Auth events
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -11,13 +13,6 @@ const onSignUp = function (event) {
   api.post(data)
     .then(ui.onAddUserSuccess)
     .catch(ui.onAddUserFailure)
-
-  // const input = $('#credentials[email]').val()
-  // console.log(input)
-
-//  api.signUp(data)
-//  .done(ui.success)
-//  .fail(ui.fail)
 }
 
 const onSignIn = function (event) {
@@ -29,20 +24,14 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
+// this seems like it shouldn't do anything but when
+// I comment it out the code no longer runs
+// preserving for later refactoring
+
 const postSignInSuccess = (data) => {
   store.user = data.user
   console.log(data.user)
 }
-
-// const onSignOut = function (event) {
-//   event.preventDefault()
-//   console.log(store.user.id)
-//   console.log('sign out ran')
-//
-//   api.signOut()
-//     .then(ui.signOutSuccess)
-//     .catch(ui.signOutFailure)
-// }
 
 const onSignOut = function (event) {
   event.preventDefault()
@@ -63,11 +52,38 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+// Game events
+
+// Create game
+
+const onCreateGame = function (event) {
+  event.preventDefault()
+  console.log('hello!')
+  const data = getFormFields(event.target)
+  console.log(data)
+  console.log('onCreateGame ran')
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
+// This is for the index of games. Do this last.
+// const onGetGames = function (event) {
+//   event.preventDefault()
+//   console.log('get index request ran')
+//   api.getIndex(store.data)
+//     .then(ui.indexSuccess)
+//     .catch(ui.indexFailure)
+// }
+
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#create-game').on('submit', onCreateGame)
+  // for when we implement the index function
+  // $('get-index').on('click', onGetGames)
 }
 
 module.exports = {
@@ -76,5 +92,6 @@ module.exports = {
   postSignInSuccess,
   onSignOut,
   onChangePassword,
+  onCreateGame,
   addHandlers
 }

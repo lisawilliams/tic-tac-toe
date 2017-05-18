@@ -27,7 +27,7 @@ const onSignInSuccess = (response) => {
 }
 
 const onSignInFailure = (response) => {
-  console.log('yayyyyy we did it')
+  console.log('boo it failed')
   console.log(response)
 }
 
@@ -49,6 +49,33 @@ const changePasswordFailure = (error) => {
   console.log('changePassword failure ran. error is :', error)
 }
 
+const createGameSuccess = (response) => {
+  console.log('yayyyyy we did it')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console log data is  :)' + store.game)
+}
+
+const createGameFailure = (response) => {
+  console.log('Boo, it failed')
+  console.log(response)
+  console.log('store.user console log data is ' + store.game)
+}
+
+const indexSuccess = (response) => {
+  console.log('yayyyyy we did it')
+  console.log(response)
+  store.game = response.game
+  console.log('store.user console log data is ' + store.game)
+}
+
+const indexFailure = (response) => {
+  console.log('Boo, it failed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.user console log data is ' + store.game)
+}
+
 module.exports = {
   failure,
   success,
@@ -59,5 +86,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  createGameSuccess,
+  createGameFailure,
+  indexSuccess,
+  indexFailure
 }

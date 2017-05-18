@@ -3,7 +3,7 @@
 const app = require('./../app')
 const store = require('./../store')
 
-// functions that are API calls
+// Auth API calls
 
 const post = function (data) {
   return $.ajax({
@@ -43,10 +43,41 @@ const changePassword = (data) => {
   })
 }
 
+// game API calls
+
+// create game
+
+const createGame = (data) => {
+  return $.ajax({
+    url: app.host + '/games/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+// update game
+
+// show all games (index)
+
+// const getIndex = (success, fail) => {
+//   console.log('Started request')
+//   $.ajax({
+//     method: 'GET',
+//     url: app.host + '/games',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
 module.exports = {
   post,
   postSignIn,
   signOut,
-  changePassword
+  changePassword,
+  createGame
 
 }
