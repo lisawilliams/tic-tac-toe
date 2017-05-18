@@ -54,6 +54,8 @@ const onChangePassword = function (event) {
 
 // Game events
 
+// Game board array
+
 // Create game
 
 const onCreateGame = function (event) {
@@ -65,6 +67,10 @@ const onCreateGame = function (event) {
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+}
+
+const onClickCellZero = function (event) {
+  $('#zero').on('click', '.cellZero').text('it worked')
 }
 
 // This is for the index of games. Do this last.
@@ -82,6 +88,15 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#create-game').on('submit', onCreateGame)
+  $('#zero').on('click', onClickCellZero)
+  // $('#one').on('click', onClickCell)
+  // $('#two').on('click', onClickCell)
+  // $('#three').on('click', onClickCell)
+  // $('#four').on('click', onClickCell)
+  // $('#five').on('click', onClickCell)
+  // $('#six').on('click', onClickCell)
+  // $('#seven').on('click', onClickCell)
+  // $('#eight').on('click', onClickCell)
   // for when we implement the index function
   // $('get-index').on('click', onGetGames)
 }
@@ -93,5 +108,7 @@ module.exports = {
   onSignOut,
   onChangePassword,
   onCreateGame,
+//  onNewGame,
+  onClickCellZero,
   addHandlers
 }
