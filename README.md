@@ -11,7 +11,7 @@ While have not met requirements yet, I do feel I've learned a lot, and I feel as
 * _Developing and practicing a step-by-step approach to writing code:_ I now use a step-by-step approach to writing code that I hadn't used before, starting with writing a curl script to test an API request, building the HTML and CSS, writing an event handler, passing that through to an API request, and then writing code that handles the UI. Doing this made writing each interlocking set of functions much more repeatable and easier.
 * _Increased ability to understand what's going wrong with code through using the console and developer tools_: I've never used the console and Chrome developer tools as much as I have this week, and on several occasions I was able to read what the console was telling me and fix what was wrong with my code on my own without filing an issue.
 * _Writing great issues:_ I got more practice writing issues. Because I was committed to writing good issues I sometimes figured out what my problem was just from writing up the issue, as I did here. In other cases, writing a detailed issue let consultants give me the right direction. I was very impressed by how consultants gave me hints that were enough to get me moving in the right direction without telling me what the answer was. Many thanks to Jessica, Ben A and Ben M, and Scott.
-* _Developing an approach to modularizing code:_ Initially, I thought I would have multiple api.js and ui.js files, but in practice combined these. 
+* _Developing an approach to modularizing code:_ Initially, I thought I would have multiple api.js and ui.js files, but in practice combined these.
 * _Sticking with it:_ I've had plenty of opportunities to stick with things, but I'm a big believer in the idea that you get stronger if you stick with things when you have a challenge. I actually had a minor crash on my motorcycle on Wednesday, but returned to class later that day and wrote two new features.
 
 
@@ -59,12 +59,16 @@ The game board will have 9 divs arranged in a grid via CSS.
 Each div will contain an HTML element whose content we can change via jQuery
 in response to user click events.
 
-## How we plan to approach this project
+## How I plan to approach this project
 
-Our team met over lunch on Friday to discuss the project.
-We established a basic idea of how we would approach version control and got a sense of
-how we would divide the tasks. We intend to use code review and pair programming so that
-all team members become conversant with all aspects of the code.
+I originally thought we were doing this in squads, but I think I learned a lot doing this on my own.
+I'm still at the point where I follow one feature into the next, but my overall process has been:
+
+* Implement all auth features
+* Implement game board
+* Store user moves and use PATCH to submit them to the API
+* Eventually, write code that detects win/draw conditions
+* Clean up code and UI
 
 ## User Stories
 
