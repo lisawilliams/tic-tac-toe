@@ -59,6 +59,16 @@ const createGame = (data) => {
 }
 
 // update game
+const updateGame = (data) => {
+  return $.ajax({
+    url: app.host + '/games/',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 // show all games (index)
 
@@ -78,6 +88,7 @@ module.exports = {
   postSignIn,
   signOut,
   changePassword,
-  createGame
+  createGame,
+  updateGame
 
 }

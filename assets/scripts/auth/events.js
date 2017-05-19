@@ -70,9 +70,36 @@ const onCreateGame = function (event) {
 }
 
 const onClickCellZero = function (event) {
-  $('#zero').on('click', '.cellZero').text('it worked')
+  $('.cellZero').html('X')
+  api.updateGame()
+    .then(ui.UpdateGameSuccess)
+    .catch(ui.UpdateGameFailure)
 }
 
+const onClickCellOne = function (event) {
+  $('.cellOne').html('X')
+}
+const onClickCellTwo = function (event) {
+  $('.cellTwo').html('X')
+}
+const onClickCellThree = function (event) {
+  $('.cellThree').html('X')
+}
+const onClickCellFour = function (event) {
+  $('.cellFour').html('X')
+}
+const onClickCellFive = function (event) {
+  $('.cellFive').html('X')
+}
+const onClickCellSix = function (event) {
+  $('.cellSix').html('X')
+}
+const onClickCellSeven = function (event) {
+  $('.cellSeven').html('X')
+}
+const onClickCellEight = function (event) {
+  $('.cellEight').html('X')
+}
 // This is for the index of games. Do this last.
 // const onGetGames = function (event) {
 //   event.preventDefault()
@@ -89,14 +116,14 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#create-game').on('submit', onCreateGame)
   $('#zero').on('click', onClickCellZero)
-  // $('#one').on('click', onClickCell)
-  // $('#two').on('click', onClickCell)
-  // $('#three').on('click', onClickCell)
-  // $('#four').on('click', onClickCell)
-  // $('#five').on('click', onClickCell)
-  // $('#six').on('click', onClickCell)
-  // $('#seven').on('click', onClickCell)
-  // $('#eight').on('click', onClickCell)
+  $('#one').on('click', onClickCellOne)
+  $('#two').on('click', onClickCellTwo)
+  $('#three').on('click', onClickCellThree)
+  $('#four').on('click', onClickCellFour)
+  $('#five').on('click', onClickCellFive)
+  $('#six').on('click', onClickCellSix)
+  $('#seven').on('click', onClickCellSeven)
+  $('#eight').on('click', onClickCellEight)
   // for when we implement the index function
   // $('get-index').on('click', onGetGames)
 }
@@ -110,5 +137,13 @@ module.exports = {
   onCreateGame,
 //  onNewGame,
   onClickCellZero,
+  onClickCellOne,
+  onClickCellTwo,
+  onClickCellThree,
+  onClickCellFour,
+  onClickCellFive,
+  onClickCellSix,
+  onClickCellSeven,
+  onClickCellEight,
   addHandlers
 }
