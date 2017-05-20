@@ -1,5 +1,6 @@
 'use strict'
 
+const config = require('./../config')
 const app = require('./../app')
 const store = require('./../store')
 
@@ -7,7 +8,7 @@ const store = require('./../store')
 
 const post = function (data) {
   return $.ajax({
-    url: app.host + '/sign-up',
+    url: config.apiOrigins.production + '/sign-up',
     method: 'POST',
     data
   })
@@ -15,7 +16,7 @@ const post = function (data) {
 
 const postSignIn = function (data) {
   return $.ajax({
-    url: app.host + '/sign-in',
+    url: config.apiOrigins.production + '/sign-in',
     method: 'POST',
     data
   })
@@ -23,7 +24,7 @@ const postSignIn = function (data) {
 
 const signOut = () => {
   return $.ajax({
-    url: app.host + '/sign-out/' + store.user.id,
+    url: config.apiOrigins.production + '/sign-out/' + store.user.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -34,7 +35,7 @@ const signOut = () => {
 const changePassword = (data) => {
   console.log('data is ', data)
   return $.ajax({
-    url: app.host + '/change-password/' + store.user.id,
+    url: config.apiOrigins.production + '/change-password/' + store.user.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -49,7 +50,7 @@ const changePassword = (data) => {
 
 const createGame = (data) => {
   return $.ajax({
-    url: app.host + '/games/',
+    url: config.apiOrigins.production + '/games/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -61,7 +62,7 @@ const createGame = (data) => {
 // update game
 const updateGame = (data) => {
   return $.ajax({
-    url: app.host + '/games/',
+    url: config.apiOrigins.production + '/games/',
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
