@@ -2,6 +2,16 @@
 
 ---
 
+## Technologies Used
+
+In this project, I used the following technologies:
+
+* Javascript, AJAX, and jQuery;
+* Grunt serve and grunt deploy to manage development and production servers;
+* Git, Github, and Github Pages for version control, remote code backup and issue management, and hosting of the production version of the game.
+* This game depends on use of a Rails API that I did not produce, but the Javascript code I wrote makes calls to that API and stores results I used to manage users, track moves and detect win/draw conditions, etc. 
+
+
 ## What I Have Learned So Far:
 
 While have not met requirements yet, I do feel I've learned a lot, and I feel as though I will be able to meet requirements if I keep working. I'm making a lot of progress relative to the me of a week ago, which is important to me.
