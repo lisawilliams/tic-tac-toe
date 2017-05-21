@@ -74,7 +74,7 @@ const createGameSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
   // store.game = response.game
-  $('#createGameSuccessPrompt').text('You have a new game. Good luck.')
+  $('#usermessage').text('You have a new game. Good luck.')
 }
 
 const createGameFailure = (response) => {
