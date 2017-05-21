@@ -23,11 +23,13 @@ const failure = (error) => {
 const onAddUserSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
+  $('#addUserSuccessPrompt').text('You have signed up!')
 }
 
 const onAddUserFailure = (response) => {
-  console.log('yayyyyy we did it')
+  console.log('boooo it failed')
   console.log(response)
+  $('#addUserFailurePrompt').text('Signup failed. Try again.')
 }
 
 const onSignInSuccess = (response) => {
@@ -42,37 +44,44 @@ const onSignInSuccess = (response) => {
 const onSignInFailure = (response) => {
   console.log('boo it failed')
   console.log(response)
+  $('#prompt').text('Sign In Failed')
 }
 
 const signOutSuccess = () => {
   console.log('signOut success ran. and nothing was returned')
   store.user = null
+  $('#signOutSuccessPrompt').text('You have signed out. See you soon!')
 }
 
 const signOutFailure = (error) => {
   console.log('signOut failure ran. error is :', error)
+  $('#signOutFailurePrompt').text('Hm. Signout did not work. Try again?')
 }
 
 const changePasswordSuccess = () => {
   console.log('changePassword success ran. and nothing was returned')
   store.user = null
   resetForm($('#change-password'))
+  $('#changePasswordSuccessPrompt').text('You have changed your password.')
 }
 
 const changePasswordFailure = (error) => {
   console.log('changePassword failure ran. error is :', error)
+  $('#changePasswordFailurePrompt').text('Hm. That did not work. Try again?')
 }
 
 const createGameSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
   // store.game = response.game
+  $('#createGameSuccessPrompt').text('You have a new game. Good luck.')
 }
 
 const createGameFailure = (response) => {
   console.log('Boo, it failed')
   console.log(response)
   console.log('store.user console log data is ' + store.user)
+  $('#createGameFailurePrompt').text('Creating a new game did not work. Check your Internet connection.')
 }
 
 const updateGameSuccess = (response) => {
