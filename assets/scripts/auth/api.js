@@ -49,6 +49,9 @@ const changePassword = (data) => {
 // create game
 
 const createGame = (data) => {
+  // when we create a game we have to start with player X
+  store.player = 'X'
+  console.log('player is ', store.player)
   return $.ajax({
     url: config.apiOrigins.production + '/games/',
     method: 'POST',
@@ -60,6 +63,8 @@ const createGame = (data) => {
     console.log('createGame returns ', response)
     store.game = response.game
     // gameID = store.game.id
+    console.log('store.game is ', store.game)
+    console.log('store.player is player: ', store.player)
   })
 }
 
@@ -75,6 +80,28 @@ const updateGame = (data) => {
     data
   })
 }
+// working on updateGame function that passes new state to API
+// const updateGame = (data) => {
+//   console.log('updateGame has loaded but not run yet')
+//   return $.ajax({
+//     url: config.apiOrigins.production + '/games/' + store.game.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data:{
+//   //     'game':{
+//   //       'cell':{
+//   //         'index': index,
+//   //         'value': value
+//   //       },
+//   //       'over': over
+//   //   }
+//   // }
+//   }
+//   .then((response) =>{
+//     store.game.cells = response.game.cells
+//   })
 
 // show all games (index)
 
@@ -96,5 +123,4 @@ module.exports = {
   changePassword,
   createGame,
   updateGame
-
 }

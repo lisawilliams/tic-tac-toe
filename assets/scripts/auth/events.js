@@ -74,17 +74,29 @@ const postCreateGameSuccess = (data) => {
   console.log('this is postCreateGameSuccess', data.game)
 }
 
+// const onClickCellZero = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   $('.cellZero').html('X')
+//   store.game.cells[0] = 'x'
+//   console.log(store.game)
+//   console.log('this is here so the linter will not yell', data)
+//   api.updateGame(store.game)
+//     .then(ui.updateGameSuccess)
+//     .catch(ui.updateGameFailure)
+// }
+
 const onClickCellZero = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  $('.cellZero').html('X')
   store.game.cells[0] = 'x'
   console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-  api.updateGame(store.game)
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFailure)
+  api.clickedCellZero() // passing the credentials to the ajax call
+    .then(ui.clickedCellZeroSuccess) // using the Promise tot ensure order execution
+    // .then() afterwards takes the results of the previous .then()
+    .catch(ui.clickedCellZeroFailure)
 }
+
 
 const onClickCellOne = function (event) {
   $('.cellOne').html('X')
