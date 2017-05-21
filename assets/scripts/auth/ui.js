@@ -52,12 +52,24 @@ const changePasswordFailure = (error) => {
 const createGameSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
-  store.game = response.game
-  console.log('store.game console log data is  :)' + store.game)
+  // store.game = response.game
 }
 
 const createGameFailure = (response) => {
   console.log('Boo, it failed')
+  console.log(response)
+  console.log('store.user console log data is ' + response)
+}
+
+const updateGameSuccess = (response) => {
+  console.log('yayyyyy we did it updateGame worked')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console log data is  :)' + store.game)
+}
+
+const updateGameFailure = (response) => {
+  console.log('Boo, updateGame failed')
   console.log(response)
   console.log('store.user console log data is ' + store.game)
 }
@@ -89,6 +101,8 @@ module.exports = {
   changePasswordFailure,
   createGameSuccess,
   createGameFailure,
+  updateGameSuccess,
+  updateGameFailure,
   indexSuccess,
   indexFailure
 }

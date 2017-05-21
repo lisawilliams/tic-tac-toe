@@ -1,7 +1,7 @@
 'use strict'
 
 const config = require('./../config')
-const app = require('./../app')
+// const app = require('./../app')
 const store = require('./../store')
 
 // Auth API calls
@@ -54,15 +54,20 @@ const createGame = (data) => {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
+  })
+  .then((response) => {
+    console.log('createGame returns ', response)
+    store.game = response.game
+    // gameID = store.game.id
   })
 }
 
 // update game
+
 const updateGame = (data) => {
   return $.ajax({
-    url: config.apiOrigins.production + '/games/',
+    url: config.apiOrigins.production + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

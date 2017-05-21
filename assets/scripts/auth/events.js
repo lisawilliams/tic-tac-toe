@@ -1,6 +1,7 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
 const getFormFields = require('../../../lib/get-form-fields.js')
 
@@ -57,7 +58,6 @@ const onChangePassword = function (event) {
 // Game board array
 
 // Create game
-
 const onCreateGame = function (event) {
   event.preventDefault()
   console.log('hello!')
@@ -69,11 +69,25 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
+// const onClickCellZero = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   $('.cellZero').html('X')
+//   api.updateGame()
+//     .then(ui.UpdateGameSuccess)
+//     .catch(ui.UpdateGameFailure)
+// }
+
 const onClickCellZero = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
   $('.cellZero').html('X')
-  api.updateGame()
-    .then(ui.UpdateGameSuccess)
-    .catch(ui.UpdateGameFailure)
+  store.game.cells[0] = 'x'
+  console.log(store.game)
+  console.log('this is ', data)
+  api.updateGame(store.game)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
 
 const onClickCellOne = function (event) {
