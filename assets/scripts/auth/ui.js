@@ -1,4 +1,15 @@
 'use strict'
+
+const resetForm = function resetForm ($form) {
+  $form.find('input:text, input:password, input:file, select, textarea').val('')
+  $form.find('input:radio, input:checkbox')
+         .removeAttr('checked').removeAttr('selected')
+}
+
+// to call, use:
+// resetForm($('#myform')); // by id, recommended
+// resetForm($('form[name=myName]')); // by name
+
 const store = require('../store')
 
 const success = (data) => {
@@ -24,6 +35,8 @@ const onSignInSuccess = (response) => {
   console.log(response)
   store.user = response.user
   console.log('store.user console log data is ' + store.user)
+  resetForm($('#sign-in-form'))
+  console.log('Is the form empty now?')
 }
 
 const onSignInFailure = (response) => {
@@ -43,6 +56,7 @@ const signOutFailure = (error) => {
 const changePasswordSuccess = () => {
   console.log('changePassword success ran. and nothing was returned')
   store.user = null
+  resetForm($('#change-password'))
 }
 
 const changePasswordFailure = (error) => {
@@ -58,7 +72,7 @@ const createGameSuccess = (response) => {
 const createGameFailure = (response) => {
   console.log('Boo, it failed')
   console.log(response)
-  console.log('store.user console log data is ' + response)
+  console.log('store.user console log data is ' + store.user)
 }
 
 const updateGameSuccess = (response) => {
@@ -89,6 +103,7 @@ const indexFailure = (response) => {
 }
 
 module.exports = {
+  resetForm,
   failure,
   success,
   onAddUserSuccess,

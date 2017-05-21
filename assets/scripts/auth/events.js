@@ -69,14 +69,10 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
-// const onClickCellZero = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   $('.cellZero').html('X')
-//   api.updateGame()
-//     .then(ui.UpdateGameSuccess)
-//     .catch(ui.UpdateGameFailure)
-// }
+const postCreateGameSuccess = (data) => {
+  store.game = data.game
+  console.log('this is postCreateGameSuccess', data.game)
+}
 
 const onClickCellZero = function (event) {
   event.preventDefault()
@@ -84,7 +80,7 @@ const onClickCellZero = function (event) {
   $('.cellZero').html('X')
   store.game.cells[0] = 'x'
   console.log(store.game)
-  console.log('this is ', data)
+  console.log('this is here so the linter will not yell', data)
   api.updateGame(store.game)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
@@ -149,7 +145,7 @@ module.exports = {
   onSignOut,
   onChangePassword,
   onCreateGame,
-//  onNewGame,
+  postCreateGameSuccess,
   onClickCellZero,
   onClickCellOne,
   onClickCellTwo,
