@@ -112,6 +112,37 @@ const clickedCellZero = function () {
   .then(console.log('turn complete!'))
 }
 
+const clickedCellOne = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 1,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
 // working on updateGame function that passes new state to API
 // const updateGame = (data) => {
 //   console.log('updateGame has loaded but not run yet')
@@ -155,5 +186,6 @@ module.exports = {
   changePassword,
   createGame,
   updateGame,
-  clickedCellZero
+  clickedCellZero,
+  clickedCellOne
 }

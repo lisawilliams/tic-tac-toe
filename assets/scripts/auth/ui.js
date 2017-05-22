@@ -104,10 +104,26 @@ const clickedCellZeroSuccess = (response) => {
   console.log(response)
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
+  $('.cellZero').html(store.player)
   $('#usermessage').text(store.player + ' chose Cell Zero.')
 }
 
 const clickedCellZeroFailure = (error) => {
+  console.log('User clicked Cell Zero')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+const clickedCellOneSuccess = (response) => {
+  console.log('User clicked Cell One and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellOne').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell One.')
+}
+
+const clickedCellOneFailure = (error) => {
   console.log('User clicked Cell Zero')
   console.log(error)
   console.log('store.game console.log data is: ' + store.game)
@@ -145,6 +161,8 @@ module.exports = {
   updateGameFailure,
   clickedCellZeroSuccess,
   clickedCellZeroFailure,
+  clickedCellOneSuccess,
+  clickedCellOneFailure,
   indexSuccess,
   indexFailure
 }
