@@ -88,13 +88,29 @@ const updateGameSuccess = (response) => {
   console.log('yayyyyy we did it updateGame worked')
   console.log(response)
   store.game = response.game
-  console.log('store.game console log data is  :)' + store.game)
+  console.log('store.game console log data is  :' + store.game)
 }
 
 const updateGameFailure = (response) => {
   console.log('Boo, updateGame failed')
   console.log(response)
   console.log('store.user console log data is ' + store.game)
+}
+
+// UI functions for individual cell click functions
+
+const clickedCellZeroSuccess = (response) => {
+  console.log('User clicked Cell Zero and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text(store.player + ' chose Cell Zero.')
+}
+
+const clickedCellZeroFailure = (error) => {
+  console.log('User clicked Cell Zero')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
 }
 
 const indexSuccess = (response) => {
@@ -127,6 +143,8 @@ module.exports = {
   createGameFailure,
   updateGameSuccess,
   updateGameFailure,
+  clickedCellZeroSuccess,
+  clickedCellZeroFailure,
   indexSuccess,
   indexFailure
 }
