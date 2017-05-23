@@ -51,6 +51,7 @@ const changePassword = (data) => {
 const createGame = (data) => {
   // when we create a game we have to start with player X
   store.player = 'X'
+  store.counter = 0
   console.log('player is ', store.player)
   return $.ajax({
     url: config.apiOrigins.production + '/games/',
@@ -82,14 +83,17 @@ const updateGame = (data) => {
 }
 
 const clickedCellZero = function () {
-  store.player = 'X'
-  // if (store.counter % 2) {
-  //   store.player = 'X'
-  //   store.counter++
-  // } else {
-  //   store.player = 'O'
-  //   store.counter++
-  // }
+  if (store.counter === 0) {
+    store.player = 'X'
+  } else {
+    if (store.counter % 2) {
+      store.player = 'X'
+      store.counter++
+    } else {
+      store.player = 'O'
+      store.counter++
+    }
+  }
   store.boardValue = store.player
   console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
   console.log(store.game.id)
@@ -143,28 +147,222 @@ const clickedCellOne = function () {
   .then(console.log('turn complete!'))
 }
 
-// working on updateGame function that passes new state to API
-// const updateGame = (data) => {
-//   console.log('updateGame has loaded but not run yet')
-//   return $.ajax({
-//     url: config.apiOrigins.production + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data:{
-//   //     'game':{
-//   //       'cell':{
-//   //         'index': index,
-//   //         'value': value
-//   //       },
-//   //       'over': over
-//   //   }
-//   // }
-//   }
-//   .then((response) =>{
-//     store.game.cells = response.game.cells
-//   })
+const clickedCellTwo = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 2,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
+const clickedCellThree = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 3,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
+const clickedCellFour = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 4,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
+const clickedCellFive = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 5,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
+const clickedCellSix = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 6,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
+const clickedCellSeven = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 7,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
+
+const clickedCellEight = function () {
+  store.player = 'X'
+  if (store.counter % 2) {
+    store.player = 'X'
+    store.counter++
+  } else {
+    store.player = 'O'
+    store.counter++
+  }
+  store.boardValue = store.player
+  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
+  console.log(store.game.id)
+  return $.ajax({
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    url: config.apiOrigins.production + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': 8,
+          'value': '' + store.player + ''
+        },
+        'over': false
+      }
+    }
+  })
+  .then(console.log('turn complete!'))
+}
 
 // show all games (index)
 
@@ -187,5 +385,13 @@ module.exports = {
   createGame,
   updateGame,
   clickedCellZero,
-  clickedCellOne
+  clickedCellOne,
+  clickedCellTwo,
+  clickedCellThree,
+  clickedCellFour,
+  clickedCellFive,
+  clickedCellSix,
+  clickedCellSeven,
+  clickedCellEight
+
 }

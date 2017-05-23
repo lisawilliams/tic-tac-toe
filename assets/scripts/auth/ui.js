@@ -20,6 +20,10 @@ const failure = (error) => {
   console.error(error)
 }
 
+// Auth functions
+
+// Add user
+
 const onAddUserSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
@@ -31,6 +35,8 @@ const onAddUserFailure = (response) => {
   console.log(response)
   $('#addUserFailurePrompt').text('Signup failed. Try again.')
 }
+
+// Sign in user
 
 const onSignInSuccess = (response) => {
   console.log('yayyyyy we did it')
@@ -47,6 +53,8 @@ const onSignInFailure = (response) => {
   $('#prompt').text('Sign In Failed')
 }
 
+// Sign out user
+
 const signOutSuccess = () => {
   console.log('signOut success ran. and nothing was returned')
   store.user = null
@@ -57,6 +65,8 @@ const signOutFailure = (error) => {
   console.log('signOut failure ran. error is :', error)
   $('#signOutFailurePrompt').text('Hm. Signout did not work. Try again?')
 }
+
+// Change user password
 
 const changePasswordSuccess = () => {
   console.log('changePassword success ran. and nothing was returned')
@@ -69,6 +79,10 @@ const changePasswordFailure = (error) => {
   console.log('changePassword failure ran. error is :', error)
   $('#changePasswordFailurePrompt').text('Hm. That did not work. Try again?')
 }
+
+// Gameplay functions
+
+// Create game
 
 const createGameSuccess = (response) => {
   console.log('yayyyyy we did it')
@@ -83,6 +97,8 @@ const createGameFailure = (response) => {
   console.log('store.user console log data is ' + store.user)
   $('#createGameFailurePrompt').text('Creating a new game did not work. Check your Internet connection.')
 }
+
+// Update game (may be refactored to eliminate multiple cell functions, or eliminated)
 
 const updateGameSuccess = (response) => {
   console.log('yayyyyy we did it updateGame worked')
@@ -99,6 +115,8 @@ const updateGameFailure = (response) => {
 
 // UI functions for individual cell click functions
 
+// Cell Zero
+
 const clickedCellZeroSuccess = (response) => {
   console.log('User clicked Cell Zero and turn completed')
   console.log(response)
@@ -114,6 +132,8 @@ const clickedCellZeroFailure = (error) => {
   console.log('store.game console.log data is: ' + store.game)
 }
 
+// Cell One
+
 const clickedCellOneSuccess = (response) => {
   console.log('User clicked Cell One and turn completed')
   console.log(response)
@@ -124,10 +144,131 @@ const clickedCellOneSuccess = (response) => {
 }
 
 const clickedCellOneFailure = (error) => {
-  console.log('User clicked Cell Zero')
+  console.log('User clicked Cell One')
   console.log(error)
   console.log('store.game console.log data is: ' + store.game)
 }
+
+// Cell Two
+
+const clickedCellTwoSuccess = (response) => {
+  console.log('User clicked Cell Two and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellTwo').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Two.')
+}
+
+const clickedCellTwoFailure = (error) => {
+  console.log('User clicked Cell Two')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Cell Three
+
+const clickedCellThreeSuccess = (response) => {
+  console.log('User clicked Cell Three and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellThree').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Three.')
+}
+
+const clickedCellThreeFailure = (error) => {
+  console.log('User clicked Cell Three')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Cell Four
+
+const clickedCellFourSuccess = (response) => {
+  console.log('User clicked Cell Four and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellFour').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Four.')
+}
+
+const clickedCellFourFailure = (error) => {
+  console.log('User clicked Cell Four')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Cell Five
+
+const clickedCellFiveSuccess = (response) => {
+  console.log('User clicked Cell Five and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellFive').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Five.')
+}
+
+const clickedCellFiveFailure = (error) => {
+  console.log('User clicked Cell Five')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Cell Six
+
+const clickedCellSixSuccess = (response) => {
+  console.log('User clicked Cell Six and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellSix').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Six.')
+}
+
+const clickedCellSixFailure = (error) => {
+  console.log('User clicked Cell Six')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Cell Seven
+
+const clickedCellSevenSuccess = (response) => {
+  console.log('User clicked Cell Seven and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellSeven').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Seven.')
+}
+
+const clickedCellSevenFailure = (error) => {
+  console.log('User clicked Cell Seven')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Cell Eight
+
+const clickedCellEightSuccess = (response) => {
+  console.log('User clicked Cell Two and turn completed')
+  console.log(response)
+  store.game = response.game
+  console.log('store.game console.log data is: ' + store.game)
+  $('.cellEight').html(store.player)
+  $('#usermessage').text(store.player + ' chose Cell Eight.')
+}
+
+const clickedCellEightFailure = (error) => {
+  console.log('User clicked Cell Eight')
+  console.log(error)
+  console.log('store.game console.log data is: ' + store.game)
+}
+
+// Index
 
 const indexSuccess = (response) => {
   console.log('yayyyyy we did it')
@@ -163,6 +304,20 @@ module.exports = {
   clickedCellZeroFailure,
   clickedCellOneSuccess,
   clickedCellOneFailure,
+  clickedCellTwoSuccess,
+  clickedCellTwoFailure,
+  clickedCellThreeSuccess,
+  clickedCellThreeFailure,
+  clickedCellFourSuccess,
+  clickedCellFourFailure,
+  clickedCellFiveSuccess,
+  clickedCellFiveFailure,
+  clickedCellSixSuccess,
+  clickedCellSixFailure,
+  clickedCellSevenSuccess,
+  clickedCellSevenFailure,
+  clickedCellEightSuccess,
+  clickedCellEightFailure,
   indexSuccess,
   indexFailure
 }
