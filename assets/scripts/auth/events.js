@@ -91,13 +91,18 @@ const onClickCellZero = function (event) {
   const data = getFormFields(event.target)
   // we have to get the value to return from the API at some point, but for now...
   // $('.cellZero').html(store.player)
-  store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-  api.clickedCellZero() // passing the credentials to the ajax call
+
+  if (store.game.cells[0] === '') {
+    store.game.cells[0] = 'x'
+    console.log(store.game)
+    console.log('this is here so the linter will not yell', data)
+    api.clickedCellZero() // passing the credentials to the ajax call
     .then(ui.clickedCellZeroSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellZeroFailure)
+  } else {
+    console.log('Square is full, choose another!')
+  }
 }
 
 const onClickCellOne = function (event) {
