@@ -139,10 +139,18 @@ const onClickCellTwo = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellTwo() // passing the credentials to the ajax call
+
+  if (store.game.cells[2] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellTwo() // passing the credentials to the ajax call
     .then(ui.clickedCellTwoSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellTwoFailure)
+  }
 }
 
 const onClickCellThree = function (event) {
@@ -153,10 +161,18 @@ const onClickCellThree = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellThree() // passing the credentials to the ajax call
+
+  if (store.game.cells[3] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellThree() // passing the credentials to the ajax call
     .then(ui.clickedCellThreeSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellThreeFailure)
+  }
 }
 const onClickCellFour = function (event) {
   event.preventDefault()
@@ -166,10 +182,18 @@ const onClickCellFour = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellFour() // passing the credentials to the ajax call
+
+  if (store.game.cells[4] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellFour() // passing the credentials to the ajax call
     .then(ui.clickedCellFourSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellFourFailure)
+  }
 }
 const onClickCellFive = function (event) {
   event.preventDefault()
@@ -179,10 +203,18 @@ const onClickCellFive = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellFive() // passing the credentials to the ajax call
+
+  if (store.game.cells[5] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellFive() // passing the credentials to the ajax call
     .then(ui.clickedCellFiveSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellFiveFailure)
+  }
 }
 const onClickCellSix = function (event) {
   event.preventDefault()
@@ -192,10 +224,18 @@ const onClickCellSix = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellSix() // passing the credentials to the ajax call
+
+  if (store.game.cells[6] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellSix() // passing the credentials to the ajax call
     .then(ui.clickedCellSixSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellSixFailure)
+  }
 }
 const onClickCellSeven = function (event) {
   event.preventDefault()
@@ -205,10 +245,18 @@ const onClickCellSeven = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellSeven() // passing the credentials to the ajax call
+
+  if (store.game.cells[7] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellSeven() // passing the credentials to the ajax call
     .then(ui.clickedCellSevenSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellSevenFailure)
+  }
 }
 const onClickCellEight = function (event) {
   event.preventDefault()
@@ -218,10 +266,18 @@ const onClickCellEight = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellEight() // passing the credentials to the ajax call
+
+  if (store.game.cells[8] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellEight() // passing the credentials to the ajax call
     .then(ui.clickedCellEightSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellEightFailure)
+  }
 }
 // This is for the index of games. Do this last.
 // const onGetGames = function (event) {
