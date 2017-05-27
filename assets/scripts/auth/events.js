@@ -101,7 +101,12 @@ const onClickCellZero = function (event) {
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellZeroFailure)
   } else {
-    console.log('Square is full, choose another!')
+    if (store.game.cells[0] !== '') {
+      console.log('Square is full, choose another!')
+      ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+    }
   }
 }
 
@@ -113,12 +118,19 @@ const onClickCellOne = function (event) {
   // store.game.cells[0] = 'x'
   console.log(store.game)
   console.log('this is here so the linter will not yell', data)
-  api.clickedCellOne() // passing the credentials to the ajax call
+
+  if (store.game.cells[1] !== '') {
+    console.log('Square is full, choose another!')
+    ui.clickedFullCell()
+    // .then(ui.clickedFullCell)
+    // .catch(ui.placeholder)
+  } else {
+    api.clickedCellOne() // passing the credentials to the ajax call
     .then(ui.clickedCellOneSuccess) // using the Promise tot ensure order execution
     // .then() afterwards takes the results of the previous .then()
     .catch(ui.clickedCellOneFailure)
+  }
 }
-
 const onClickCellTwo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)

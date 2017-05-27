@@ -268,6 +268,18 @@ const clickedCellEightFailure = (error) => {
   console.log('store.game console.log data is: ' + store.game)
 }
 
+// Clicked cell that's already been played
+
+const clickedFullCell = (response) => {
+  console.log('User clicked cell that has already been played')
+  console.log(response)
+  $('#usermessage').text('Someone already made that move. Try another cell.')
+}
+// placeholder function
+const placeholder = (response) => {
+  console.log('Placeholder function ran')
+}
+
 // Index
 
 const indexSuccess = (response) => {
@@ -318,6 +330,8 @@ module.exports = {
   clickedCellSevenFailure,
   clickedCellEightSuccess,
   clickedCellEightFailure,
+  clickedFullCell,
+  placeholder,
   indexSuccess,
   indexFailure
 }
