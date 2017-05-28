@@ -125,7 +125,7 @@ const clickedCellZeroSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellZero').html(store.player)
   if (store.game.cells[0] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Zero.')
   }
@@ -146,7 +146,7 @@ const clickedCellOneSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellOne').html(store.player)
   if (store.game.cells[1] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell One.')
   }
@@ -166,7 +166,7 @@ const clickedCellTwoSuccess = (response) => {
   store.game = response.game
   $('.cellTwo').html(store.player)
   if (store.game.cells[2] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Two.')
   }
@@ -187,7 +187,7 @@ const clickedCellThreeSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellThree').html(store.player)
   if (store.game.cells[3] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Three.')
   }
@@ -208,7 +208,7 @@ const clickedCellFourSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellFour').html(store.player)
   if (store.game.cells[4] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Five.')
   }
@@ -229,7 +229,7 @@ const clickedCellFiveSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellFive').html(store.player)
   if (store.game.cells[5] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Five.')
   }
@@ -250,7 +250,7 @@ const clickedCellSixSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellSix').html(store.player)
   if (store.game.cells[6] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Six.')
   }
@@ -271,7 +271,7 @@ const clickedCellSevenSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellSeven').html(store.player)
   if (store.game.cells[7] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Seven.')
   }
@@ -292,7 +292,7 @@ const clickedCellEightSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellEight').html(store.player)
   if (store.game.cells[8] !== '') {
-    xWinsGame()
+    winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Eight.')
   }
@@ -316,11 +316,9 @@ const placeholder = (response) => {
   console.log('Placeholder function ran')
 }
 
-// detect win/loss/draw
+// detect win/loss for Player X or Player 0
 
-// detect win for Player X
-
-const xWinsGame = function () {
+const winsGame = function () {
   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
   (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
   (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
@@ -331,13 +329,52 @@ const xWinsGame = function () {
   (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     console.log('x won game')
   } else {
-    xLost()
+    if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
+    (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
+    (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') ||
+    (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') ||
+    (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') ||
+    (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') ||
+    (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
+    (store.game.cells[2] === 'O' && store.game.cells[4] === '' && store.game.cells[6] === 'X')) {
+      console.log('o won game')
+    }
   }
 }
 
-const xLost = (response) => {
-  console.log('X lost game')
-}
+// detect win for Player X
+
+// const xWinsGame = function () {
+//   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+//   (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
+//   (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
+//   (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') ||
+//   (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') ||
+//   (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
+//   (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
+//   (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
+//     console.log('x won game')
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+//
+// const oWinsGame = function () {
+//   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+//   (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
+//   (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
+//   (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') ||
+//   (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') ||
+//   (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
+//   (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
+//   (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
+//     console.log('o won game')
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 // Index
 
@@ -391,8 +428,7 @@ module.exports = {
   clickedCellEightFailure,
   clickedFullCell,
   placeholder,
-  xWinsGame,
-  xLost,
+  winsGame,
   indexSuccess,
   indexFailure
 }
