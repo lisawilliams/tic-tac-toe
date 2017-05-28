@@ -352,7 +352,7 @@ const winsGame = function () {
       $('#usermessage').text(store.player + ' won the game!')
       $('#gameboard').hide()
       api.gameLost()
-      gameDrawStatsUpdate()
+      gameLoseStatsUpdate()
     } else {
       if (
   (store.game.cells[0] !== '') &&
@@ -368,7 +368,8 @@ const winsGame = function () {
         $('#usermessage').text('Game is a draw')
         $('#gameboard').hide()
         api.gameDraw()
-        gameDrawStatsUpdate()
+        $('#userstatsdraw').text('Draw games: ' + store.gameDrawStats)
+        // gameDrawStatsUpdate()
       }
     }
   }
@@ -377,15 +378,15 @@ const winsGame = function () {
 // Game stats
 
 const gameLoseStatsUpdate = function () {
-  $('#userstatslost').text(store.player + 'Lost games: ' + store.gameLost)
+  $('#userstatslost').text(store.player + 'Lost games: ' + store.gameLostStats)
 }
 
 const gameWonStatsUpdate = function () {
-  $('#userstatswin').text(store.player + 'Won games: ' + store.gameWin)
+  $('#userstatswin').text(store.player + 'Won games: ' + store.gameWonStats)
 }
 
 const gameDrawStatsUpdate = function () {
-  $('#userstatsdraw').text(store.player + 'Draw games: ' + store.gameDraw)
+  $('#userstatsdraw').text('Draw games: ' + store.gameDrawStats)
 }
 
 // Index

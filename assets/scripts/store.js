@@ -4,15 +4,15 @@ const store = {
 
 }
 
-let gameLost = 0
+let gameLostStats = 0
 
-let gameWon = 0
+let gameWonStats = 0
 
-let gameDraw = 0
+let gameDrawStats = 0
 
 module.exports = {
   store,
-  gameLost,
-  gameWon,
-  gameDraw
+  gameLostStats,
+  gameWonStats,
+  gameDrawStats
 }

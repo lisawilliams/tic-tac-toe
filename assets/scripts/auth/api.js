@@ -3,6 +3,7 @@
 const config = require('./../config')
 // const app = require('./../app')
 const store = require('./../store')
+// const events = require('./events')
 
 // Auth API calls
 
@@ -367,18 +368,18 @@ const clickedCellEight = function () {
 // record game outcomes for user stats
 
 const gameLost = function () {
-  store.gameLost = gameLost + 1
-  console.log('store gameLost is ' + store.gameLost)
+  store.gameLostStats = store.gameLostStats + 1
+  console.log('store gameLost is ' + store.gameLostStats)
 }
 
 const gameWon = function () {
-  store.gameWon = gameWon + 1
-  console.log('store.gameWon is ' + store.gameWon)
+  store.gameWonStats = store.gameWonStats + 1
+  console.log('store.gameWon is ' + store.gameWonStats)
 }
 
 const gameDraw = function () {
-  store.gameDraw = gameDraw + 1
-  console.log('store.gameDraw is ' + store.gameDraw)
+  store.gameDrawStats = store.gameDrawStats + 1
+  console.log('store.gameDrawStats is ' + store.gameDrawStats)
 }
 
 // show all games (index)
