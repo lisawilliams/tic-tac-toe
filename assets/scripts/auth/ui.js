@@ -1,4 +1,5 @@
 'use strict'
+// const game = require('./game')
 
 const resetForm = function resetForm ($form) {
   $form.find('input:text, input:password, input:file, select, textarea').val('')
@@ -155,9 +156,12 @@ const clickedCellTwoSuccess = (response) => {
   console.log('User clicked Cell Two and turn completed')
   console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
   $('.cellTwo').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Two.')
+  if (store.game.cells[2] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Two.')
+  }
 }
 
 const clickedCellTwoFailure = (error) => {
@@ -280,6 +284,21 @@ const placeholder = (response) => {
   console.log('Placeholder function ran')
 }
 
+// detect win/loss/draw
+
+const xWinsGame = function () {
+  if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X')) {
+    console.log('x won game')
+  } else {
+    // return false
+    xLost()
+  }
+}
+
+const xLost = (response) => {
+  console.log('X lost game')
+}
+
 // Index
 
 const indexSuccess = (response) => {
@@ -332,6 +351,8 @@ module.exports = {
   clickedCellEightFailure,
   clickedFullCell,
   placeholder,
+  xWinsGame,
+  xLost,
   indexSuccess,
   indexFailure
 }

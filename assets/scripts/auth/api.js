@@ -3,6 +3,7 @@
 const config = require('./../config')
 // const app = require('./../app')
 const store = require('./../store')
+const game = require('./game')
 
 // Auth API calls
 

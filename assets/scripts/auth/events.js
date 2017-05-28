@@ -1,5 +1,6 @@
 'use strict'
 const api = require('./api')
+const game = require('./game')
 const ui = require('./ui')
 const store = require('./../store')
 
@@ -74,17 +75,8 @@ const postCreateGameSuccess = (data) => {
   console.log('this is postCreateGameSuccess', data.game)
 }
 
-// const onClickCellZero = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   $('.cellZero').html('X')
-//   store.game.cells[0] = 'x'
-//   console.log(store.game)
-//   console.log('this is here so the linter will not yell', data)
-//   api.updateGame(store.game)
-//     .then(ui.updateGameSuccess)
-//     .catch(ui.updateGameFailure)
-// }
+
+// Event handlers to respond to users clicking on game cells
 
 const onClickCellZero = function (event) {
   event.preventDefault()
@@ -143,13 +135,11 @@ const onClickCellTwo = function (event) {
   if (store.game.cells[2] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
-    api.clickedCellTwo() // passing the credentials to the ajax call
-    .then(ui.clickedCellTwoSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellTwo()
+    .then(ui.clickedCellTwoSuccess)
     .catch(ui.clickedCellTwoFailure)
+    // game.xWinsGame()
   }
 }
 
