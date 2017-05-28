@@ -1,6 +1,5 @@
 'use strict'
 const api = require('./api')
-const game = require('./game')
 const ui = require('./ui')
 const store = require('./../store')
 
@@ -11,7 +10,6 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.post(data)
     .then(ui.onAddUserSuccess)
     .catch(ui.onAddUserFailure)
@@ -20,7 +18,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.postSignIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -38,7 +35,6 @@ const postSignInSuccess = (data) => {
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.signOut(onSignIn.data)
   .then(ui.signOutSuccess)
   .catch(ui.signOutFailure)
@@ -46,8 +42,6 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
-
   const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -56,15 +50,10 @@ const onChangePassword = function (event) {
 
 // Game events
 
-// Game board array
-
 // Create game
 const onCreateGame = function (event) {
   event.preventDefault()
-  console.log('hello!')
   const data = getFormFields(event.target)
-  console.log(data)
-  console.log('onCreateGame ran')
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -75,29 +64,23 @@ const postCreateGameSuccess = (data) => {
   console.log('this is postCreateGameSuccess', data.game)
 }
 
-
 // Event handlers to respond to users clicking on game cells
 
 const onClickCellZero = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-
+  // $('.cellZero').html(store.player
   if (store.game.cells[0] === '') {
     store.game.cells[0] = 'x'
-    console.log(store.game)
-    console.log('this is here so the linter will not yell', data)
-    api.clickedCellZero() // passing the credentials to the ajax call
-    .then(ui.clickedCellZeroSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    // console.log('this is here so the linter will not yell', data)
+    api.clickedCellZero()
+    .then(ui.clickedCellZeroSuccess)
     .catch(ui.clickedCellZeroFailure)
   } else {
     if (store.game.cells[0] !== '') {
       console.log('Square is full, choose another!')
       ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
     }
   }
 }
@@ -105,33 +88,18 @@ const onClickCellZero = function (event) {
 const onClickCellOne = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[1] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
-    api.clickedCellOne() // passing the credentials to the ajax call
-    .then(ui.clickedCellOneSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellOne()
+    .then(ui.clickedCellOneSuccess)
     .catch(ui.clickedCellOneFailure)
   }
 }
 const onClickCellTwo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[2] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
@@ -139,131 +107,83 @@ const onClickCellTwo = function (event) {
     api.clickedCellTwo()
     .then(ui.clickedCellTwoSuccess)
     .catch(ui.clickedCellTwoFailure)
-    // game.xWinsGame()
   }
 }
 
 const onClickCellThree = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[3] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
-    api.clickedCellThree() // passing the credentials to the ajax call
-    .then(ui.clickedCellThreeSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellThree()
+    .then(ui.clickedCellThreeSuccess)
     .catch(ui.clickedCellThreeFailure)
   }
 }
+
 const onClickCellFour = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[4] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
-    api.clickedCellFour() // passing the credentials to the ajax call
-    .then(ui.clickedCellFourSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellFour()
+    .then(ui.clickedCellFourSuccess)
     .catch(ui.clickedCellFourFailure)
   }
 }
+
 const onClickCellFive = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[5] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
-    api.clickedCellFive() // passing the credentials to the ajax call
-    .then(ui.clickedCellFiveSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellFive()
+    .then(ui.clickedCellFiveSuccess)
     .catch(ui.clickedCellFiveFailure)
   }
 }
+
 const onClickCellSix = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[6] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
     api.clickedCellSix()
     .then(ui.clickedCellSixSuccess)
     .catch(ui.clickedCellSixFailure)
   }
 }
+
 const onClickCellSeven = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[7] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
     api.clickedCellSeven()
     .then(ui.clickedCellSevenSuccess)
     .catch(ui.clickedCellSevenFailure)
   }
 }
+
 const onClickCellEight = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // we have to get the value to return from the API at some point, but for now...
-  // $('.cellZero').html(store.player)
-  // store.game.cells[0] = 'x'
-  console.log(store.game)
-  console.log('this is here so the linter will not yell', data)
-
   if (store.game.cells[8] !== '') {
     console.log('Square is full, choose another!')
     ui.clickedFullCell()
-    // .then(ui.clickedFullCell)
-    // .catch(ui.placeholder)
   } else {
-    api.clickedCellEight() // passing the credentials to the ajax call
-    .then(ui.clickedCellEightSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellEight()
+    .then(ui.clickedCellEightSuccess)
     .catch(ui.clickedCellEightFailure)
   }
 }
