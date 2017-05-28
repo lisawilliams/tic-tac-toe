@@ -3,7 +3,6 @@
 const config = require('./../config')
 // const app = require('./../app')
 const store = require('./../store')
-const game = require('./game')
 
 // Auth API calls
 
@@ -367,32 +366,21 @@ const clickedCellEight = function () {
 
 // show all games (index)
 
-// const getIndex = (success, fail) => {
-//   console.log('Started request')
-//   $.ajax({
-//     method: 'GET',
-//     url: app.host + '/games',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const getIndex = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.userToken
-//     }
-//   })
-//   .then((response) => {
-//     store.gamesPlayed = response.games.length
-//     $('.played').text(response.games.length)
-//     store.games = response.games
-//     // $('.played').text(store.games.length)
-//   })
-// }
+const getIndex = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
+  .then((response) => {
+    store.gamesPlayed = response.games.length
+    $('.played').text(response.games.length)
+    store.games = response.games
+    // $('.usermessage').text(store.games.length)
+  })
+}
 
 module.exports = {
   post,
@@ -409,6 +397,7 @@ module.exports = {
   clickedCellFive,
   clickedCellSix,
   clickedCellSeven,
-  clickedCellEight
+  clickedCellEight,
+  getIndex
 
 }

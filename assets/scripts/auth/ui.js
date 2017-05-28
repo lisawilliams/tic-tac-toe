@@ -342,6 +342,21 @@ const winsGame = function () {
       console.log('o won game')
       $('#usermessage').text(store.player + ' won the game!')
       $('#gameboard').hide()
+    } else {
+      if (
+  (store.game.cells[0] !== '') &&
+  (store.game.cells[1] !== '') &&
+  (store.game.cells[2] !== '') &&
+  (store.game.cells[3] !== '') &&
+  (store.game.cells[4] !== '') &&
+  (store.game.cells[5] !== '') &&
+  (store.game.cells[6] !== '') &&
+  (store.game.cells[7] !== '') &&
+  (store.game.cells[8] !== '')) {
+        console.log('game is a draw')
+        $('#usermessage').text('Game is a draw')
+        $('#gameboard').hide()
+      }
     }
   }
 }
