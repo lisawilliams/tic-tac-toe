@@ -1,5 +1,6 @@
 'use strict'
 // const game = require('./game')
+const api = require('./api')
 
 const resetForm = function resetForm ($form) {
   $form.find('input:text, input:password, input:file, select, textarea').val('')
@@ -316,6 +317,12 @@ const placeholder = (response) => {
   console.log('Placeholder function ran')
 }
 
+// Game logic
+
+// I would love to put this in game.js but every time I do so things break
+// commenting here to preserve for later refactoring
+// see following issue for details:
+// https://github.com/lisawilliams/tic-tac-toe/issues/25
 // detect win/loss for Player X or Player 0
 
 const winsGame = function () {
@@ -330,6 +337,7 @@ const winsGame = function () {
     console.log('x won game')
     $('#usermessage').text(store.player + ' won the game!')
     $('#gameboard').hide()
+    api.gameWon()
   } else {
     if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
     (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
@@ -342,6 +350,7 @@ const winsGame = function () {
       console.log('o won game')
       $('#usermessage').text(store.player + ' won the game!')
       $('#gameboard').hide()
+      api.gameLost()
     } else {
       if (
   (store.game.cells[0] !== '') &&
@@ -356,6 +365,7 @@ const winsGame = function () {
         console.log('game is a draw')
         $('#usermessage').text('Game is a draw')
         $('#gameboard').hide()
+        api.gameDraw()
       }
     }
   }

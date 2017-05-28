@@ -364,8 +364,24 @@ const clickedCellEight = function () {
   .then(console.log('turn complete!'))
 }
 
-// show all games (index)
+// record game outcomes for user stats
 
+const gameLost = function () {
+  store.gameLost = gameLost + 1
+  console.log('store gameLost is ' + store.gameLost)
+}
+
+const gameWon = function () {
+  store.gameWon = gameWon + 1
+  console.log('store.gameWon is ' + store.gameWon)
+}
+
+const gameDraw = function () {
+  store.gameDraw = gameDraw + 1
+  console.log('store.gameDraw is ' + store.gameDraw)
+}
+
+// show all games (index)
 const getIndex = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games',
@@ -398,6 +414,9 @@ module.exports = {
   clickedCellSix,
   clickedCellSeven,
   clickedCellEight,
+  gameLost,
+  gameWon,
+  gameDraw,
   getIndex
 
 }

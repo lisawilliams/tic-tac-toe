@@ -4,6 +4,15 @@ const store = {
 
 }
 
+let gameLost = 0
+
+let gameWon = 0
+
+let gameDraw = 0
+
 module.exports = {
-  store
+  store,
+  gameLost,
+  gameWon,
+  gameDraw
 }
