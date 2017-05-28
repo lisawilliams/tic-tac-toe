@@ -221,9 +221,8 @@ const onClickCellSix = function (event) {
     // .then(ui.clickedFullCell)
     // .catch(ui.placeholder)
   } else {
-    api.clickedCellSix() // passing the credentials to the ajax call
-    .then(ui.clickedCellSixSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellSix()
+    .then(ui.clickedCellSixSuccess)
     .catch(ui.clickedCellSixFailure)
   }
 }
@@ -242,9 +241,8 @@ const onClickCellSeven = function (event) {
     // .then(ui.clickedFullCell)
     // .catch(ui.placeholder)
   } else {
-    api.clickedCellSeven() // passing the credentials to the ajax call
-    .then(ui.clickedCellSevenSuccess) // using the Promise tot ensure order execution
-    // .then() afterwards takes the results of the previous .then()
+    api.clickedCellSeven()
+    .then(ui.clickedCellSevenSuccess)
     .catch(ui.clickedCellSevenFailure)
   }
 }

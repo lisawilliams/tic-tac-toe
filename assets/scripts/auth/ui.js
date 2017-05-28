@@ -124,7 +124,11 @@ const clickedCellZeroSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellZero').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Zero.')
+  if (store.game.cells[0] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Zero.')
+  }
 }
 
 const clickedCellZeroFailure = (error) => {
@@ -141,7 +145,11 @@ const clickedCellOneSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellOne').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell One.')
+  if (store.game.cells[1] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell One.')
+  }
 }
 
 const clickedCellOneFailure = (error) => {
@@ -178,7 +186,11 @@ const clickedCellThreeSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellThree').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Three.')
+  if (store.game.cells[3] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Three.')
+  }
 }
 
 const clickedCellThreeFailure = (error) => {
@@ -195,7 +207,11 @@ const clickedCellFourSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellFour').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Four.')
+  if (store.game.cells[4] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Five.')
+  }
 }
 
 const clickedCellFourFailure = (error) => {
@@ -212,7 +228,11 @@ const clickedCellFiveSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellFive').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Five.')
+  if (store.game.cells[5] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Five.')
+  }
 }
 
 const clickedCellFiveFailure = (error) => {
@@ -229,7 +249,11 @@ const clickedCellSixSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellSix').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Six.')
+  if (store.game.cells[6] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Six.')
+  }
 }
 
 const clickedCellSixFailure = (error) => {
@@ -246,7 +270,11 @@ const clickedCellSevenSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellSeven').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Seven.')
+  if (store.game.cells[7] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Seven.')
+  }
 }
 
 const clickedCellSevenFailure = (error) => {
@@ -263,7 +291,11 @@ const clickedCellEightSuccess = (response) => {
   store.game = response.game
   console.log('store.game console.log data is: ' + store.game)
   $('.cellEight').html(store.player)
-  $('#usermessage').text(store.player + ' chose Cell Eight.')
+  if (store.game.cells[8] !== '') {
+    xWinsGame()
+  } else {
+    $('#usermessage').text(store.player + ' chose Cell Eight.')
+  }
 }
 
 const clickedCellEightFailure = (error) => {
@@ -286,11 +318,19 @@ const placeholder = (response) => {
 
 // detect win/loss/draw
 
+// detect win for Player X
+
 const xWinsGame = function () {
-  if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X')) {
+  if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+  (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
+  (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
+  (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') ||
+  (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') ||
+  (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
+  (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
+  (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     console.log('x won game')
   } else {
-    // return false
     xLost()
   }
 }
