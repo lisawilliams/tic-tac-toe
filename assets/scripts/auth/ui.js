@@ -338,6 +338,7 @@ const winsGame = function () {
     $('#usermessage').text(store.player + ' won the game!')
     $('#gameboard').hide()
     api.gameWon()
+    gameWonStatsUpdate()
   } else {
     if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
     (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
@@ -351,6 +352,7 @@ const winsGame = function () {
       $('#usermessage').text(store.player + ' won the game!')
       $('#gameboard').hide()
       api.gameLost()
+      gameDrawStatsUpdate()
     } else {
       if (
   (store.game.cells[0] !== '') &&
@@ -366,9 +368,24 @@ const winsGame = function () {
         $('#usermessage').text('Game is a draw')
         $('#gameboard').hide()
         api.gameDraw()
+        gameDrawStatsUpdate()
       }
     }
   }
+}
+
+// Game stats
+
+const gameLoseStatsUpdate = function () {
+  $('#userstatslost').text(store.player + 'Lost games: ' + store.gameLost)
+}
+
+const gameWonStatsUpdate = function () {
+  $('#userstatswin').text(store.player + 'Won games: ' + store.gameWin)
+}
+
+const gameDrawStatsUpdate = function () {
+  $('#userstatsdraw').text(store.player + 'Draw games: ' + store.gameDraw)
 }
 
 // Index
@@ -424,6 +441,9 @@ module.exports = {
   clickedFullCell,
   placeholder,
   winsGame,
+  gameLoseStatsUpdate,
+  gameWonStatsUpdate,
+  gameDrawStatsUpdate,
   indexSuccess,
   indexFailure
 }
