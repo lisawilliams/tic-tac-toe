@@ -89,6 +89,7 @@ const changePasswordFailure = (error) => {
 const createGameSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
+  console.log(store.game.cells)
   if (store.game.cells[0] === '') {
     $('#cellZero').text('T')
     $('#cellOne').text('I')
