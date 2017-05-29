@@ -46,12 +46,13 @@ const onSignInSuccess = (response) => {
   // console.log('store.user console log data is ' + store.user)
   resetForm($('#sign-in-form'))
   // console.log('Is the form empty now?')
+  $('#usermessage').text('Welcome! You are signed in!')
 }
 
 const onSignInFailure = (response) => {
   // console.log('boo it failed')
   // console.log(response)
-  $('#prompt').text('Sign In Failed')
+  $('#usermessage').text('Sign In Failed')
 }
 
 // Sign out user
@@ -59,12 +60,12 @@ const onSignInFailure = (response) => {
 const signOutSuccess = () => {
   // console.log('signOut success ran. and nothing was returned')
   store.user = null
-  $('#signOutSuccessPrompt').text('You have signed out. See you soon!')
+  $('#usermessage').text('You have signed out. See you soon!')
 }
 
 const signOutFailure = (error) => {
   // console.log('signOut failure ran. error is :', error)
-  $('#signOutFailurePrompt').text('Hm. Signout did not work. Try again?')
+  $('#usermessage').text('Hm. Signout did not work. Try again?')
 }
 
 // Change user password
@@ -73,12 +74,12 @@ const changePasswordSuccess = () => {
   // console.log('changePassword success ran. and nothing was returned')
   store.user = null
   resetForm($('#change-password'))
-  $('#changePasswordSuccessPrompt').text('You have changed your password.')
+  $('#usermessage').text('You have changed your password.')
 }
 
 const changePasswordFailure = (error) => {
   // console.log('changePassword failure ran. error is :', error)
-  $('#changePasswordFailurePrompt').text('Hm. That did not work. Try again?')
+  $('#usermessage').text('Hm. That did not work. Try again?')
 }
 
 // Gameplay functions
