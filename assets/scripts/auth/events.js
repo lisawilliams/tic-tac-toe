@@ -29,7 +29,6 @@ const onSignIn = function (event) {
 
 const postSignInSuccess = (data) => {
   store.user = data.user
-  console.log(data.user)
 }
 
 const onSignOut = function (event) {
@@ -61,7 +60,6 @@ const onCreateGame = function (event) {
 
 const postCreateGameSuccess = (data) => {
   store.game = data.game
-  console.log('this is postCreateGameSuccess', data.game)
 }
 
 // Event handlers to respond to users clicking on game cells
@@ -79,7 +77,6 @@ const onClickCellZero = function (event) {
     .catch(ui.clickedCellZeroFailure)
   } else {
     if (store.game.cells[0] !== '') {
-      console.log('Square is full, choose another!')
       ui.clickedFullCell()
     }
   }
@@ -89,7 +86,6 @@ const onClickCellOne = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[1] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellOne()
@@ -101,7 +97,6 @@ const onClickCellTwo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[2] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellTwo()
@@ -114,7 +109,6 @@ const onClickCellThree = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[3] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellThree()
@@ -127,7 +121,6 @@ const onClickCellFour = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[4] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellFour()
@@ -140,7 +133,6 @@ const onClickCellFive = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[5] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellFive()
@@ -153,7 +145,6 @@ const onClickCellSix = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[6] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellSix()
@@ -166,7 +157,6 @@ const onClickCellSeven = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[7] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellSeven()
@@ -179,7 +169,6 @@ const onClickCellEight = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (store.game.cells[8] !== '') {
-    console.log('Square is full, choose another!')
     ui.clickedFullCell()
   } else {
     api.clickedCellEight()
