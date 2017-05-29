@@ -27,6 +27,10 @@ While have not met requirements yet, I do feel I've learned a lot, and I feel as
 ## Unsolved Problems
 
 * _This code is about as DRY as the Titanic._ Many, many of the functions need to be condensed into one function.
+* _Board is playable -- but confusing -- after a user clicks "New Game."_ If a user plays a game through to the end, and then clicks New Game, they are presented with a game board with their old moves on it.  Interestingly, this board is still playable and will correctly detect win/draw conditions; the underlying game array is blank and new moves fill it.
+* _Sign-up modal should be replaced_ The sign up modal does not dismiss itself upon a user filling it out.
+* _All auth features should have show/hide features_ Show/hide features would make the UI less cluttered for the user and prevent them from doing things like clicking on "New Game" when they are not logged in.
+* _Intermittent Player 1 bug_ I have an intermittent bug that makes Player O the first player in some games. This is a difficult to reproduce bug but I am in the hunt for it. 
 * _Code with better grasp of the API and store.js_ Much of the repetition comes from the fact that I did not slow down long enough to really grasp all of the API and what it's putting in store.js. If I did, I could use single functions and simply swap out user and game cell data, rather than hard coding functions for each state.
 
 
