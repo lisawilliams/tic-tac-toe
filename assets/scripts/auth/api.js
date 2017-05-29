@@ -193,7 +193,6 @@ const clickedCellThree = function () {
       }
     }
   })
-
 }
 
 const clickedCellFour = function () {

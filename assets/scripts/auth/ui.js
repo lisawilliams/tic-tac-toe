@@ -1,5 +1,4 @@
 'use strict'
-// const game = require('./game')
 const api = require('./api')
 
 const resetForm = function resetForm ($form) {
@@ -15,11 +14,11 @@ const resetForm = function resetForm ($form) {
 const store = require('../store')
 
 const success = (data) => {
-  console.log(data)
+//  console.log(data)
 }
 
 const failure = (error) => {
-  console.error(error)
+//  console.error(error)
 }
 
 // Auth functions
@@ -27,58 +26,58 @@ const failure = (error) => {
 // Add user
 
 const onAddUserSuccess = (response) => {
-  console.log('yayyyyy we did it')
-  console.log(response)
+  // console.log('yayyyyy we did it')
+  // console.log(response)
   $('#addUserSuccessPrompt').text('You have signed up!')
 }
 
 const onAddUserFailure = (response) => {
-  console.log('boooo it failed')
-  console.log(response)
+  // console.log('boooo it failed')
+  // console.log(response)
   $('#addUserFailurePrompt').text('Signup failed. Try again.')
 }
 
 // Sign in user
 
 const onSignInSuccess = (response) => {
-  console.log('yayyyyy we did it')
-  console.log(response)
+  // console.log('yayyyyy we did it')
+  // console.log(response)
   store.user = response.user
-  console.log('store.user console log data is ' + store.user)
+  // console.log('store.user console log data is ' + store.user)
   resetForm($('#sign-in-form'))
-  console.log('Is the form empty now?')
+  // console.log('Is the form empty now?')
 }
 
 const onSignInFailure = (response) => {
-  console.log('boo it failed')
-  console.log(response)
+  // console.log('boo it failed')
+  // console.log(response)
   $('#prompt').text('Sign In Failed')
 }
 
 // Sign out user
 
 const signOutSuccess = () => {
-  console.log('signOut success ran. and nothing was returned')
+  // console.log('signOut success ran. and nothing was returned')
   store.user = null
   $('#signOutSuccessPrompt').text('You have signed out. See you soon!')
 }
 
 const signOutFailure = (error) => {
-  console.log('signOut failure ran. error is :', error)
+  // console.log('signOut failure ran. error is :', error)
   $('#signOutFailurePrompt').text('Hm. Signout did not work. Try again?')
 }
 
 // Change user password
 
 const changePasswordSuccess = () => {
-  console.log('changePassword success ran. and nothing was returned')
+  // console.log('changePassword success ran. and nothing was returned')
   store.user = null
   resetForm($('#change-password'))
   $('#changePasswordSuccessPrompt').text('You have changed your password.')
 }
 
 const changePasswordFailure = (error) => {
-  console.log('changePassword failure ran. error is :', error)
+  // console.log('changePassword failure ran. error is :', error)
   $('#changePasswordFailurePrompt').text('Hm. That did not work. Try again?')
 }
 
@@ -87,9 +86,9 @@ const changePasswordFailure = (error) => {
 // Create game
 
 const createGameSuccess = (response) => {
-  console.log('yayyyyy we did it')
-  console.log(response)
-  console.log(store.game.cells)
+  // console.log('yayyyyy we did it')
+  // console.log(response)
+  // console.log(store.game.cells)
   if (store.game.cells[0] === '') {
     $('#cellZero').text('T')
     $('#cellOne').text('I')
@@ -106,25 +105,26 @@ const createGameSuccess = (response) => {
 }
 
 const createGameFailure = (response) => {
-  console.log('Boo, it failed')
-  console.log(response)
-  console.log('store.user console log data is ' + store.user)
-  $('#createGameFailurePrompt').text('Creating a new game did not work. Check your Internet connection.')
+  // console.log('Boo, it failed')
+  // console.log(response)
+  // console.log('store.user console log data is ' + store.user)
+  $('#usermessage').text('Creating a new game did not work. Check your Internet connection.')
 }
 
 // Update game (may be refactored to eliminate multiple cell functions, or eliminated)
 
 const updateGameSuccess = (response) => {
-  console.log('yayyyyy we did it updateGame worked')
-  console.log(response)
+  // console.log('yayyyyy we did it updateGame worked')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console log data is  :' + store.game)
+  // console.log('store.game console log data is  :' + store.game)
 }
 
 const updateGameFailure = (response) => {
-  console.log('Boo, updateGame failed')
-  console.log(response)
-  console.log('store.user console log data is ' + store.game)
+  // console.log('Boo, updateGame failed')
+  // console.log(response)
+  // console.log('store.user console log data is ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // UI functions for individual cell click functions
@@ -132,10 +132,10 @@ const updateGameFailure = (response) => {
 // Cell Zero
 
 const clickedCellZeroSuccess = (response) => {
-  console.log('User clicked Cell Zero and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Zero and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellZero').html(store.player)
   if (store.game.cells[0] !== '') {
     winsGame()
@@ -145,18 +145,19 @@ const clickedCellZeroSuccess = (response) => {
 }
 
 const clickedCellZeroFailure = (error) => {
-  console.log('User clicked Cell Zero')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Zero')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell One
 
 const clickedCellOneSuccess = (response) => {
-  console.log('User clicked Cell One and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell One and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellOne').html(store.player)
   if (store.game.cells[1] !== '') {
     winsGame()
@@ -166,16 +167,17 @@ const clickedCellOneSuccess = (response) => {
 }
 
 const clickedCellOneFailure = (error) => {
-  console.log('User clicked Cell One')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell One')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Two
 
 const clickedCellTwoSuccess = (response) => {
-  console.log('User clicked Cell Two and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Two and turn completed')
+  // console.log(response)
   store.game = response.game
   $('.cellTwo').html(store.player)
   if (store.game.cells[2] !== '') {
@@ -186,18 +188,19 @@ const clickedCellTwoSuccess = (response) => {
 }
 
 const clickedCellTwoFailure = (error) => {
-  console.log('User clicked Cell Two')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Two')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Three
 
 const clickedCellThreeSuccess = (response) => {
-  console.log('User clicked Cell Three and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Three and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellThree').html(store.player)
   if (store.game.cells[3] !== '') {
     winsGame()
@@ -207,18 +210,19 @@ const clickedCellThreeSuccess = (response) => {
 }
 
 const clickedCellThreeFailure = (error) => {
-  console.log('User clicked Cell Three')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Three')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Four
 
 const clickedCellFourSuccess = (response) => {
-  console.log('User clicked Cell Four and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Four and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellFour').html(store.player)
   if (store.game.cells[4] !== '') {
     winsGame()
@@ -228,18 +232,19 @@ const clickedCellFourSuccess = (response) => {
 }
 
 const clickedCellFourFailure = (error) => {
-  console.log('User clicked Cell Four')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Four')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Five
 
 const clickedCellFiveSuccess = (response) => {
-  console.log('User clicked Cell Five and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Five and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellFive').html(store.player)
   if (store.game.cells[5] !== '') {
     winsGame()
@@ -249,18 +254,19 @@ const clickedCellFiveSuccess = (response) => {
 }
 
 const clickedCellFiveFailure = (error) => {
-  console.log('User clicked Cell Five')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Five')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Six
 
 const clickedCellSixSuccess = (response) => {
-  console.log('User clicked Cell Six and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Six and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellSix').html(store.player)
   if (store.game.cells[6] !== '') {
     winsGame()
@@ -270,18 +276,19 @@ const clickedCellSixSuccess = (response) => {
 }
 
 const clickedCellSixFailure = (error) => {
-  console.log('User clicked Cell Six')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Six')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Seven
 
 const clickedCellSevenSuccess = (response) => {
-  console.log('User clicked Cell Seven and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Seven and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellSeven').html(store.player)
   if (store.game.cells[7] !== '') {
     winsGame()
@@ -291,18 +298,19 @@ const clickedCellSevenSuccess = (response) => {
 }
 
 const clickedCellSevenFailure = (error) => {
-  console.log('User clicked Cell Seven')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Seven')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Cell Eight
 
 const clickedCellEightSuccess = (response) => {
-  console.log('User clicked Cell Two and turn completed')
-  console.log(response)
+  // console.log('User clicked Cell Two and turn completed')
+  // console.log(response)
   store.game = response.game
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('store.game console.log data is: ' + store.game)
   $('.cellEight').html(store.player)
   if (store.game.cells[8] !== '') {
     // this is where the error is
@@ -313,21 +321,22 @@ const clickedCellEightSuccess = (response) => {
 }
 
 const clickedCellEightFailure = (error) => {
-  console.log('User clicked Cell Eight')
-  console.log(error)
-  console.log('store.game console.log data is: ' + store.game)
+  // console.log('User clicked Cell Eight')
+  // console.log(error)
+  // console.log('store.game console.log data is: ' + store.game)
+  $('#usermessage').text('Updating the game did not work. Check your Internet connection.')
 }
 
 // Clicked cell that's already been played
 
 const clickedFullCell = (response) => {
-  console.log('User clicked cell that has already been played')
-  console.log(response)
+  // console.log('User clicked cell that has already been played')
+  // console.log(response)
   $('#usermessage').text('Someone already made that move. Try another cell.')
 }
 // placeholder function
 const placeholder = (response) => {
-  console.log('Placeholder function ran')
+  // console.log('Placeholder function ran')
 }
 
 // Game logic
@@ -347,7 +356,7 @@ const winsGame = function () {
   (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
   (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
   (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
-    console.log('x won game')
+    // console.log('x won game')
     $('#usermessage').text(store.player + ' won the game!')
     $('#gameboard').hide()
     api.gameWon()
@@ -361,7 +370,7 @@ const winsGame = function () {
     (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') ||
     (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
     (store.game.cells[2] === 'O' && store.game.cells[4] === '' && store.game.cells[6] === 'X')) {
-      console.log('o won game')
+      // console.log('o won game')
       $('#usermessage').text(store.player + ' won the game!')
       $('#gameboard').hide()
       api.gameLost()
@@ -377,7 +386,7 @@ const winsGame = function () {
   (store.game.cells[6] !== '') &&
   (store.game.cells[7] !== '') &&
   (store.game.cells[8] !== '')) {
-        console.log('game is a draw')
+        // console.log('game is a draw')
         $('#usermessage').text('Game is a draw')
         $('#gameboard').hide()
         api.gameDraw()
@@ -406,15 +415,15 @@ const gameDrawStatsUpdate = function () {
 // Index
 
 const indexSuccess = (response) => {
-  console.log('yayyyyy we did it')
-  console.log(response)
+  // console.log('yayyyyy we did it')
+  // console.log(response)
   store.game = response.game
   console.log('store.user console log data is ' + store.game)
 }
 
 const indexFailure = (response) => {
-  console.log('Boo, it failed')
-  console.log(response)
+  // console.log('Boo, it failed')
+  // console.log(response)
   store.game = response.game
   console.log('store.user console log data is ' + store.game)
 }
