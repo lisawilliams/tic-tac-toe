@@ -86,11 +86,40 @@ const changePasswordFailure = (error) => {
 
 // Create game
 
+// safely stored one
+// const createGameSuccess = (response) => {
+//   // console.log('yayyyyy we did it')
+//   // console.log(response)
+//   // console.log(store.game.cells)
+//   if (store.game.cells[0] === '') {
+//     $('#cellZero').text('T')
+//     $('#cellOne').text('I')
+//     $('#cellTwo').text('C')
+//     $('#cellThree').text('T')
+//     $('#cellFour').text('A')
+//     $('#cellFive').text('C')
+//     $('#cellSix').text('T')
+//     $('#cellSeven').text('O')
+//     $('#cellEight').text('E')
+//     $('#gameboard').show()
+//   }
+//   $('#usermessage').text('You have a new game. Good luck.')
+// }
+
 const createGameSuccess = (response) => {
   // console.log('yayyyyy we did it')
   // console.log(response)
   // console.log(store.game.cells)
-  if (store.game.cells[0] === '') {
+  if (
+    (store.game.cells[0] !== '') &&
+  (store.game.cells[1] !== '') &&
+  (store.game.cells[2] !== '') &&
+  (store.game.cells[3] !== '') &&
+  (store.game.cells[4] !== '') &&
+  (store.game.cells[5] !== '') &&
+  (store.game.cells[6] !== '') &&
+  (store.game.cells[7] !== '') &&
+  (store.game.cells[8] !== ''))  {
     $('#cellZero').text('T')
     $('#cellOne').text('I')
     $('#cellTwo').text('C')
@@ -100,8 +129,8 @@ const createGameSuccess = (response) => {
     $('#cellSix').text('T')
     $('#cellSeven').text('O')
     $('#cellEight').text('E')
-    $('#gameboard').show()
   }
+  $('#gameboard').show()
   $('#usermessage').text('You have a new game. Good luck.')
 }
 
