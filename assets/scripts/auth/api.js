@@ -37,7 +37,6 @@ const signOut = () => {
 }
 
 const changePassword = (data) => {
-  console.log('data is ', data)
   return $.ajax({
     url: config.apiOrigins.production + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -56,7 +55,6 @@ const createGame = (data) => {
   // when we create a game we have to start with player X
   store.player = 'X'
   store.counter = 0
-  console.log('player is ', store.player)
   return $.ajax({
     url: config.apiOrigins.production + '/games/',
     method: 'POST',
@@ -65,11 +63,7 @@ const createGame = (data) => {
     }
   })
   .then((response) => {
-    console.log('createGame returns ', response)
     store.game = response.game
-    // gameID = store.game.id
-    console.log('store.game is ', store.game)
-    console.log('store.player is player: ', store.player)
   })
 }
 
@@ -99,8 +93,6 @@ const clickedCellZero = function () {
     }
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -117,7 +109,6 @@ const clickedCellZero = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellOne = function () {
@@ -130,8 +121,6 @@ const clickedCellOne = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -148,7 +137,6 @@ const clickedCellOne = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellTwo = function () {
@@ -161,8 +149,6 @@ const clickedCellTwo = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -179,7 +165,6 @@ const clickedCellTwo = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellThree = function () {
@@ -192,8 +177,6 @@ const clickedCellThree = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -210,7 +193,7 @@ const clickedCellThree = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
+
 }
 
 const clickedCellFour = function () {
@@ -223,8 +206,6 @@ const clickedCellFour = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -241,7 +222,6 @@ const clickedCellFour = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellFive = function () {
@@ -254,8 +234,6 @@ const clickedCellFive = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -272,7 +250,6 @@ const clickedCellFive = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellSix = function () {
@@ -285,8 +262,6 @@ const clickedCellSix = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -303,7 +278,6 @@ const clickedCellSix = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellSeven = function () {
@@ -316,8 +290,6 @@ const clickedCellSeven = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -334,7 +306,6 @@ const clickedCellSeven = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 const clickedCellEight = function () {
@@ -347,8 +318,6 @@ const clickedCellEight = function () {
     store.counter++
   }
   store.boardValue = store.player
-  console.log(store.player + ' ' + store.boardValue + ' ' + store.counter)
-  console.log(store.game.id)
   return $.ajax({
     headers: {
       'Authorization': 'Token token=' + store.user.token
@@ -365,24 +334,20 @@ const clickedCellEight = function () {
       }
     }
   })
-  .then(console.log('turn complete!'))
 }
 
 // record game outcomes for user stats
 
 const gameLost = function () {
   store.gameLostStats = store.gameLostStats + 1
-  console.log('store gameLost is ' + store.gameLostStats)
 }
 
 const gameWon = function () {
   store.gameWonStats = store.gameWonStats + 1
-  console.log('store.gameWon is ' + store.gameWonStats)
 }
 
 const gameDraw = function () {
   store.gameDrawStats = store.gameDrawStats + 1
-  console.log('store.gameDrawStats is ' + store.gameDrawStats)
 }
 
 // show all games (index)
