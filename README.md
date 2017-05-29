@@ -14,8 +14,6 @@ In this project, I used the following technologies:
 
 ## What I Have Learned So Far:
 
-While have not met requirements yet, I do feel I've learned a lot, and I feel as though I will be able to meet requirements if I keep working. I'm making a lot of progress relative to the me of a week ago, which is important to me.
-
 * _Better grasp of development mechanics:_ I feel much more confident using Git and Github. This is also the first time I have used ```grunt serve``` and ```grunt deploy``` to model what it is like to have a development and production branch. Before this, when I did projects, I used MAMP to develop things locally and then pushed everything to a live server, usually via SFTP. Grunt serve and deploy is a much better system.
 * _Ability to round-trip a user action through an API:_ This was my main area of progress during project week. Although we had lessons on this, being able to sit down and do it myself after reading the docs for a similar, but still new API was a big step for me.
 * _Developing and practicing a step-by-step approach to writing code:_ I now use a step-by-step approach to writing code that I hadn't used before, starting with writing a curl script to test an API request, building the HTML and CSS, writing an event handler, passing that through to an API request, and then writing code that handles the UI. Doing this made writing each interlocking set of functions much more repeatable and easier.
@@ -30,7 +28,7 @@ While have not met requirements yet, I do feel I've learned a lot, and I feel as
 * _Board is playable -- but confusing -- after a user clicks "New Game."_ If a user plays a game through to the end, and then clicks New Game, they are presented with a game board with their old moves on it.  Interestingly, this board is still playable and will correctly detect win/draw conditions; the underlying game array is blank and new moves fill it.
 * _Sign-up modal should be replaced_ The sign up modal does not dismiss itself upon a user filling it out.
 * _All auth features should have show/hide features_ Show/hide features would make the UI less cluttered for the user and prevent them from doing things like clicking on "New Game" when they are not logged in.
-* _Intermittent Player 1 bug_ I have an intermittent bug that makes Player O the first player in some games. This is a difficult to reproduce bug but I am in the hunt for it. 
+* _Intermittent Player 1 bug_ I have an intermittent bug that makes Player O the first player in some games. This is a difficult to reproduce bug but I am in the hunt for it.
 * _Code with better grasp of the API and store.js_ Much of the repetition comes from the fact that I did not slow down long enough to really grasp all of the API and what it's putting in store.js. If I did, I could use single functions and simply swap out user and game cell data, rather than hard coding functions for each state.
 
 
