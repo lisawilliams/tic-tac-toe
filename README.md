@@ -7,9 +7,9 @@
 In this project, I used the following technologies:
 
 * Javascript, AJAX, and jQuery;
-* Grunt serve and grunt deploy to manage development and production servers;
+* Grunt serve and grunt deploy to manage development and production servers, webpack;
 * Git, Github, and Github Pages for version control, remote code backup and issue management, and hosting of the production version of the game.
-* This game depends on use of a Rails API that I did not produce, but the Javascript code I wrote makes calls to that API and stores results I used to manage users, track moves and detect win/draw conditions, etc. 
+* This game depends on use of a Rails API that I did not produce, but the Javascript code I wrote makes calls to that API and stores results I used to manage users, track moves and detect win/draw conditions, etc.
 
 
 ## What I Have Learned So Far:
@@ -23,6 +23,11 @@ While have not met requirements yet, I do feel I've learned a lot, and I feel as
 * _Writing great issues:_ I got more practice writing issues. Because I was committed to writing good issues I sometimes figured out what my problem was just from writing up the issue, as I did here. In other cases, writing a detailed issue let consultants give me the right direction. I was very impressed by how consultants gave me hints that were enough to get me moving in the right direction without telling me what the answer was. Many thanks to Jessica, Ben A and Ben M, and Scott.
 * _Developing an approach to modularizing code:_ Initially, I thought I would have multiple api.js and ui.js files, but in practice combined these.
 * _Sticking with it:_ I've had plenty of opportunities to stick with things, but I'm a big believer in the idea that you get stronger if you stick with things when you have a challenge. I actually had a minor crash on my motorcycle on Wednesday, but returned to class later that day and wrote two new features.
+
+## Unsolved Problems
+
+* _This code is about as DRY as the Titanic._ Many, many of the functions need to be condensed into one function.
+* _Code with better grasp of the API and store.js_ Much of the repetition comes from the fact that I did not slow down long enough to really grasp all of the API and what it's putting in store.js. If I did, I could use single functions and simply swap out user and game cell data, rather than hard coding functions for each state.
 
 
 ## Wireframes
