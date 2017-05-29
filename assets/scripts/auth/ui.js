@@ -89,7 +89,18 @@ const changePasswordFailure = (error) => {
 const createGameSuccess = (response) => {
   console.log('yayyyyy we did it')
   console.log(response)
-  // store.game = response.game
+  if (store.game.cells[0] === '') {
+    $('#cellZero').text('T')
+    $('#cellOne').text('I')
+    $('#cellTwo').text('C')
+    $('#cellThree').text('T')
+    $('#cellFour').text('A')
+    $('#cellFive').text('C')
+    $('#cellSix').text('T')
+    $('#cellSeven').text('O')
+    $('#cellEight').text('E')
+    $('#gameboard').show()
+  }
   $('#usermessage').text('You have a new game. Good luck.')
 }
 
@@ -293,6 +304,7 @@ const clickedCellEightSuccess = (response) => {
   console.log('store.game console.log data is: ' + store.game)
   $('.cellEight').html(store.player)
   if (store.game.cells[8] !== '') {
+    // this is where the error is
     winsGame()
   } else {
     $('#usermessage').text(store.player + ' chose Cell Eight.')
@@ -418,6 +430,7 @@ module.exports = {
   signOutFailure,
   changePasswordSuccess,
   changePasswordFailure,
+  // newGameboard,
   createGameSuccess,
   createGameFailure,
   updateGameSuccess,

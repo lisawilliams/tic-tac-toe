@@ -1,9 +1,12 @@
 'use strict'
 
 const config = require('./../config')
-// const app = require('./../app')
 const store = require('./../store')
-// const events = require('./events')
+
+// trying to require this here in order to practice good separation
+// but it fails, saying uiGameWon is not a function...when it is.
+// maybe a circular reference?
+// const ui = require('./ui')
 
 // Auth API calls
 
