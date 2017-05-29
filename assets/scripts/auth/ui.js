@@ -376,13 +376,14 @@ const winsGame = function () {
 }
 
 // Game stats
+// Takes game win/loss/draw and puts it into user stats divs
 
 const gameLoseStatsUpdate = function () {
-  $('#userstatslost').text(store.player + 'Lost games: ' + store.gameLostStats)
+  $('#userstatslost').text('Lost games: ' + store.gameLostStats)
 }
 
 const gameWonStatsUpdate = function () {
-  $('#userstatswin').text(store.player + 'Won games: ' + store.gameWonStats)
+  $('#userstatswin').text('Won games: ' + store.gameWonStats)
 }
 
 const gameDrawStatsUpdate = function () {
